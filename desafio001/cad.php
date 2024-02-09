@@ -17,12 +17,12 @@
         $numero = $_GET["numero"] ?? "Nenhum número informado";
         $antecessor = $numero - 1;
         $sucessor = $numero + 1;
-
-        echo "<p>O número escolhido foi: <strong>$numero</strong></p>";
-        echo "<p>O antecessor é: $antecessor <br></p>";
-        echo "<p>O sucessor é: $sucessor</p>";
         ?>
-        <p><a href="javascript:history.go(-1)">Voltar para a página anterior</a></p>
+        <p>O número escolhido foi: <strong><?php echo $numero; ?></strong></p>
+        <p>O antecessor é: <?php echo $antecessor; ?> <br></p>
+        <p>O sucessor é: <?php echo $sucessor; ?></p>
+        <!-- <button onclick="location='index.php'">Voltar</button> -->
+        <button onclick="javascript:history.go(-1)">Voltar</button>
     </main>
 </body>
 

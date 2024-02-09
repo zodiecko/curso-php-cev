@@ -5,20 +5,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Desafio 001</title>
+    <title>Conversor de moedas</title>
 </head>
 
 <body>
     <header>
-        <h1>Informe um número</h1>
+        <h1>Conversor de Moedas V1.0</h1>
     </header>
+
     <main>
         <form action="cad.php" method="get">
-            <label for="numero">Número:</label>
-            <input type="number" name="numero" id="idNumero">
-            <input type="submit" value="Calcular">
+            <label><strong>Quantos reais você tem na carteira?</strong></label>
+            <input type="number" name="moeda-real" id="idReal" step="0.01">
+            <input type="submit" value="Converter">
         </form>
     </main>
+
 </body>
 
 </html>
