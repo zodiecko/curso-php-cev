@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="style.css">
     <!-- To show the modification of the range -->
     <script type="text/javascript">
-        function showRangeValue(element) {
-            document.getElementById("displayPercentage").innerHTML = element.value;
+        function mudarValor() {
+            displayPercentage.innerHTML = percentage.value;
         }
     </script>
 </head>
@@ -30,8 +30,8 @@
         <form action="<?= $_SERVER["PHP_SELF"] ?>" method="get">
             <label for="price">Price of the Product (R$)</label>
             <input type="number" name="price" id="price" step="0.01" value="<?= $price ?>">
-            <label for="percentage">What will the percentage increase be? <strong id="displayPercentage"><?= $percentage ?></strong><strong>%</strong></label>
-            <input type="range" name="percentage" id="percentage" min="0" value="<?= $percentage ?>" max="100" oninput="showRangeValue(this)">
+            <label for="percentage">What will the percentage increase be? <strong><span id="displayPercentage"><?= $percentage ?></span>%</strong></label>
+            <input type="range" name="percentage" id="percentage" min="0" value="<?= $percentage ?>" max="100" oninput="mudarValor()">
             <input type="submit" value="Readjust">
         </form>
         <section>

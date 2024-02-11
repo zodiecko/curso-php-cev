@@ -12,10 +12,10 @@
     <h1>Arithmetic Averages</h1>
     <main>
         <?php
-        $v1 = $_GET["v1"];
-        $v2 = $_GET["v2"];
-        $weight1 = $_GET["weight1"];
-        $weight2 = $_GET["weight2"];
+        $v1 = $_GET["v1"] ?? 0;
+        $v2 = $_GET["v2"] ?? 0;
+        $weight1 = $_GET["weight1"] ?? 1; //Deve ser 1 para evitar divisão por zero
+        $weight2 = $_GET["weight2"] ?? 1;
 
         $average = ($v1 + $v2) / 2;
 
@@ -24,13 +24,13 @@
         ?>
         <form action="<?= $_SERVER["PHP_SELF"] ?>" method="get">
             <label for="v1">1º valor:</label>
-            <input type="number" name="v1" id="v1" value="<?= $v1 ?>">
+            <input type="number" name="v1" id="v1" value="<?= $v1 ?>" required>
             <label for="weight1">1º peso:</label>
-            <input type="number" name="weight1" id="weight1" value="<?= $weight1 ?>">
+            <input type="number" name="weight1" id="weight1" value="<?= $weight1 ?>" required>
             <label for="v2">2º valor:</label>
-            <input type="number" name="v2" id="v2" value="<?= $v2 ?>">
+            <input type="number" name="v2" id="v2" value="<?= $v2 ?>" min="1" required>
             <label for="weight2">2º peso:</label>
-            <input type="number" name="weight2" id="weight2" value="<?= $weight2 ?>">
+            <input type="number" name="weight2" id="weight2" value="<?= $weight2 ?>" min="1" required>
             <input type="submit" value="Calculate Average">
         </form>
         <section>

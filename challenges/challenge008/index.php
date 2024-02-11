@@ -18,7 +18,7 @@
         <h1>Enter a Number:</h1>
         <form action="<?= $_SERVER["PHP_SELF"] ?>" method="get">
             <label for="number">Number:</label>
-            <input type="number" name="number" id="number" value="<?= $number ?>">
+            <input type="number" name="number" id="number" value="<?= $number ?>" min="0" required>
             <input type="submit" value="Calculate roots">
         </form>
 
@@ -27,8 +27,8 @@
             <h1>Final Result</h1>
             <p>Analising the number <strong><?= $number ?></strong>:</p>
             <ul>
-                <li>The square root is: <?= $squareRoot ?></li>
-                <li>The cube root is : <?= $cubeRoot ?></li>
+                <li>The square root is: <?= number_format($squareRoot, 2, ",", ".") ?></li>
+                <li>The cube root is : <?= number_format($cubeRoot, 2, ",", ".") ?></li>
             </ul>
         </section>
     </main>

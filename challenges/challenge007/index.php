@@ -17,20 +17,23 @@
     }
     $salary = $_REQUEST["salary"] ?? 0;
     $minimumWageBR = 1412;
-    $qms = intdiv($salary, $minimumWageBR);
-    $remainder = $salary - ($qms * $minimumWageBR);
+    $qtyms = intdiv($salary, $minimumWageBR);
+    $remainder = $salary - ($qtyms * $minimumWageBR);
     ?>
     <main>
+        <h1>Enter your salary</h1>
         <form action="<?= $_SERVER["PHP_SELF"] ?>" method="get">
             <label for="salary">Enter your salary</label>
-            <input type="number" name="salary" id="salary" step="0.01">
+            <input type="number" name="salary" id="salary" step="0.01" value="<?= $salary ?>" required>
+            <label>Minimum wage is: <?= padrao($minimumWageBR) ?></label>
             <input type="submit" value="Calculate">
         </form>
+        <section>
+            <h1>Final result</h1>
+            <p>The salary <?= padrao($salary) ?> correspond to <?= $qtyms ?> minimum wages + <?= padrao($remainder) ?></p>
+        </section>
     </main>
-    <section>
-        <h1>Final result</h1>
-        <p>The salary <?= padrao($salary) ?> correspond to <?= $qms ?> + <?= padrao($remainder) ?></p>
-    </section>
+
 </body>
 
 </html>

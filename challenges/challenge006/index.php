@@ -10,32 +10,32 @@
 
 <body>
     <?php
-    $dividendo = $_REQUEST["dividendo"];
-    $divisor = $_REQUEST["divisor"];
-    $resto = $dividendo % $divisor;
-    $quociente = intdiv($dividendo, $divisor);
+    $dividend = $_REQUEST["dividend"] ?? 0;
+    $divisor = $_REQUEST["divisor"] ?? 1; //Deve ser 1 senão não inicializa por causa da divisão por 0
+    $resto = $dividend % $divisor;
+    $quotient = intdiv($dividend, $divisor);
     ?>
     <main>
         <h1>Anatomy of a Division</h1>
 
         <form action="<?= $_SERVER["PHP_SELF"] ?>" method="get">
-            <label for="dividendo">Dividendo</label>
-            <input type="number" name="dividendo" id="dividendo" value="<?= $dividendo ?>">
+            <label for="dividend">Dividend</label>
+            <input type="number" name="dividend" id="dividend" min="0" value="<?= $dividend ?>">
             <label for="divisor">Divisor</label>
-            <input type="number" name="divisor" id="divisor" value="<?= $divisor ?>">
-            <input type="submit" value="Analisar">
+            <input type="number" name="divisor" id="divisor" min="1" value="<?= $divisor ?>">
+            <input type="submit" value="Analyze">
         </form>
     </main>
     <section>
         <h1>Division Structure</h1>
-        <table>
+        <table class="divisao">
             <tr>
-                <td>Dividend: <?= $dividendo ?></td>
-                <td>Divisor: <?= $divisor ?></td>
+                <td><?= $dividend ?></td>
+                <td><?= $divisor ?></td>
             </tr>
             <tr>
-                <td>Remainder: <?= $resto ?></td>
-                <td>Quotient: <?= $quociente ?></td>
+                <td><?= $resto ?></td>
+                <td><?= $quotient ?></td>
             </tr>
         </table>
     </section>
